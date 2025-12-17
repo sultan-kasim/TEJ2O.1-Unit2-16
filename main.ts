@@ -4,27 +4,34 @@
  * Created on: Oct 2025
  * This program sends a message throught radio if sonar too close to something.
 */
+
+// variable
+let distanceToObjest: number = 0
+
 // setup
 radio.setGroup(15)
+basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
-
-basic.forever(function () {
-    let distance = sonar.ping(
+while (true) {
+    // gets the distance
+    distanceToObjest = sonar.ping(
         DigitalPin.P1,
         DigitalPin.P2,
         PingUnit.Centimeters
     )
+    basic.showIcon(IconNames.Happy)
 
-
-    // check if that object is too close
-    if (distance > 0 && distance < 10) {
-        basic.clearScreen()
-        radio.sendString("Too close")
-        basic.pause(200)
-        basic.showIcon(IconNames.Happy)
+    if (distanceToObjest < 10) {
+        radio.sendString("Too Close")
+        basic.showIcon(IconNames.No)
+    } else {
+        basic.showIcon(IconNames.Yes)
     }
+}
 
-
-    basic.pause(500)
+radio.onReceivedString(function (receivedString) {
+    basic.clearScreen()
+    basic.showString(receivedString)
+    basic.showIcon(IconNames.Happy)
 })
