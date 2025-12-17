@@ -14,7 +14,7 @@ basic.forever(function () {
         DigitalPin.P2,
         PingUnit.Centimeters
     )
-
+//check if that object is too close
     if (distance > 0) {
         if (distance < 10) {
             basic.clearScreen()
