@@ -5,7 +5,8 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "pxt-sonar": "github:microsoft/pxt-sonar#v0.0.6"
+        "pxt-sonar": "github:microsoft/pxt-sonar#v0.0.6",
+        "radio-broadcast": "*"
     },
     "files": [
         "main.ts",
