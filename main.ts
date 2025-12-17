@@ -5,6 +5,13 @@
  * This program sends a message throught radio if sonar too close to something.
 */
 
+/* Copyright (c) 2025 MTHS All rights reserved
+*
+* Created by: Sultan
+* Created on: Oct 2025
+* This program sends a message throught radio if sonar too close to something.
+*/
+
 // variable
 let distanceToObjest: number = 0
 
